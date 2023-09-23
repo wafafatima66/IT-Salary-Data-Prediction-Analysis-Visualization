@@ -54,3 +54,51 @@ def clean_experience_2018(x):
     if x == '30 or more years':
         return 50
     return float(x)
+
+def clean_organization(x):
+    if '2 to 9 employees' in x or '10 to 19 employees' in x or 'Fewer than 10 employees' in x:
+        return 'Micro'
+    if '100 to 499 employees' in x or '20 to 99 employees' in x :
+        return 'Small'
+    if '500 to 999 employees' in x  :
+        return 'Medium'
+    if '1,000 to 4,999 employees' in x:
+        return 'Large'
+    if '10,000 or more employees' in x or '5,000 to 9,999 employees' in x:
+        return 'Enterprise'
+    return 'Self Employed'
+
+def clean_types(x):
+    if 'Developer, full-stack'  in x or 'Developer, front-end;Developer, full-stack;Developer, back-end' in x or 'Developer, back-end;Developer, front-end;Developer, full-stack' in x:
+        return 'Full Stack Developer'
+    if 'Developer, back-end' in x or 'Developer, full-stack;Developer, back-end' in x or 'Developer, back-end;Developer, full-stack' in x:
+        return 'Back-End Developer'
+    if 'Developer, front-end' in x  or 'Developer, front-end;Developer, full-stack' in x:
+        return 'Front-End Developer'
+    if 'Developer, mobile ' in x:
+        return 'Mobile Developer'
+    if 'Student' in x:
+        return 'Student'
+    return 'Other'
+
+def clean_types_18(x):
+    if 'Full-stack developer' in x or 'Back-end developer;Front-end developer;Full-stack developer' in x:
+        return 'Full Stack Developer'
+    if 'Back-end developer' in x:
+        return 'Back-End Developer'
+    if 'Developer, front-end' in x  or 'Developer, front-end;Developer, full-stack' in x:
+        return 'Front-End Developer'
+    if 'Mobile developer' in x:
+        return 'Mobile Developer'
+    if 'Student' in x:
+        return 'Student'
+    return 'Other'
+
+def clean_types_comparison(x):
+    if 'Full-stack developer' in x or 'Back-end developer;Front-end developer;Full-stack developer' in x:
+        return 'Full Stack Developer'
+    if 'Back-end developer' in x:
+        return 'Back-End Developer'
+    if 'Developer, front-end' in x  or 'Developer, front-end;Developer, full-stack' in x:
+        return 'Front-End Developer'
+    return 'Other'
